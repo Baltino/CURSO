@@ -1,0 +1,11 @@
+#response{
+	background: white;
+	border: 1px solid;
+	border-radius:3px;
+	-moz-border-radius:3px; /* Firefox */
+	-webkit-border-radius:2px; /* Safari y Chrome*/
+	display:none;
+	margin: 20px 0 0 20px;
+	position:relative;
+	width: 500px;
+}
