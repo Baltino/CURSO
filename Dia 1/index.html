@@ -1,29 +1,24 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Dia 1</title>
-  </head>
-  <body>
-   
-    
+	
+	    
 	<link rel="stylesheet" href="css/default.css" type="text/css" />
+	  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<script src='https://www.google.com/jsapi' type='text/javascript'></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-    <script type='text/javascript'>
-      //<![CDATA[
-        google.load("jquery", "1.7.1");
-      //]]>
-    </script>
+   
    
    <script>
 		$(document).ready(function(){
 			alert("La página ha terminado de cargarse");
 			$('#alias').focus();
 			
-			$("#response").click(function () {
-				  $(this).effect("explode", {}, 3000);
-			});
+	
+			
 		
 			
 		});
@@ -56,15 +51,20 @@
 		function agregarNombre(){
 			 
 			 $('#response').prepend('<div id="nombre">Maxi</div>');
-			 $('#response').css('background','blue');
-			$('#response').effect("highlight", {}, 6000);
+			// $('#response').css('background','blue');
+			$('#nombre').effect("highlight", {}, 6000);
 			
 		}
     </script>
+  </head>
+  <body>
+   
+
 	
 	<button onclick="clickBoton()"> Botón </button>
 	<input type="text" size="50" id="alias"/>
 	
 	<div id="response"> </div>
+	
   </body>
 </html>
