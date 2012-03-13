@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -12,6 +13,18 @@
 
    
    
+   </head>
+  <body>
+   
+
+	
+	<button onclick="clickBoton()"> Botón </button>
+	<input type="text" size="50" id="alias"/>
+	
+	<div id="response"> </div>
+	
+  </body>
+  
    <script>
 		$(document).ready(function(){
 			alert("La página ha terminado de cargarse");
@@ -27,44 +40,56 @@
 		
 		function clickBoton(){
 			//$.post("api/dispatcher.php", { service: "welcome.hello", params: '{"name": "[input alias on textbox]"}'} );
-	
-				$.post("api/dispatcher.php",
+				var response_div = $('#response');
+			/*	$.post("api/dispatcsher.php",
 				{service: 'welcome.hello', params: {'name': $('#alias').val()}},function(data) {
-						$('#response').html('');
+						response_div.html('');
 					   
-					   $('#response').append(data);
+					   response_div.append(data);
 					   
-					   $('#response').show('fast');
+					   response_div.show('fast');
 					
-					   agregarNombre();
+					   
 					   
 					 });
-				$('#response').ajaxError(function(event, request, settings) {
-							$('#response').html('');
-							$('#response').append("Error "+settings.url+": "+ request.responseText);
-							$('#response').show('fast');
-							$('#response').css('background','red');
+					 
+					 //no es conveniente debido a que cualquer error ejecuta el siguente codigo
+				response_div.ajaxError(function(event, request, settings) {
+							response_div.html('');
+							response_div.append("Error "+settings.url+": "+ request.responseText);
+							response_div.show('fast');
+							response_div.css('background','red');
 						});
 		
-			
+			*/
+			$.ajax({
+				url: "api/dispatcher.php",
+				data: {service: 'welcome.hello', params: {'name': $('#alias').val()}},
+				success: function(data) {
+						response_div.html('');
+					   
+					   response_div.append(data);
+					   
+					   response_div.show('fast');
+					
+					   resaltarNombre();
+					   
+					 },
+				error: function(jqXHR, textStatus, errorThrown) {
+							response_div.html('');
+							response_div.append("Error "+errorThrown+": "+ textStatus);
+							response_div.show('fast');
+							response_div.css('background','red');
+						}
+				});
 		}
-		function agregarNombre(){
+		function resaltarNombre(){
 			 
-			 $('#response').prepend('<div id="nombre">Maxi</div>');
-			// $('#response').css('background','blue');
-			$('#nombre').effect("highlight", {}, 6000);
+			 
+			
+			$("div:contains('maxi')").effect("highlight", {}, 6000);
 			
 		}
     </script>
-  </head>
-  <body>
-   
-
-	
-	<button onclick="clickBoton()"> Botón </button>
-	<input type="text" size="50" id="alias"/>
-	
-	<div id="response"> </div>
-	
-  </body>
+  
 </html>
