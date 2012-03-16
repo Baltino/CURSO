@@ -17,21 +17,33 @@
   <body>
    
 
+	<div id="fuzz">
+		<div id="response"> 
+			<a class="close" href="#" >X</a> 
+		 </div>
+	</div>
 	
 	<button onclick="buttonClick()"> Botón </button>
 	<input type="text" size="50" id="alias"/>
-	
-	<div id="response"> </div>
-	
   </body>
   
    <script>
+		var result;
 		$(document).ready(function(){
 			alert("La página ha terminado de cargarse");
 			$('#alias').focus();
 			
 	
-			
+			 //Adjust height of overlay to fill screen when page loads  
+		   $("#fuzz").css("height", $(document).height());  
+		  
+		
+		  
+		   //When the message box is closed, fade out  
+		   $(".close").click(function(){  
+			  $("#fuzz").fadeOut();  
+			  return false;  
+		   });  
 		
 			
 		});
@@ -41,21 +53,24 @@
 		function buttonClick(){
 			
 				var response_div = $('#response');
+	//	$("#fuzz").css('opacity','0.5');		
+		$("#fuzz").fadeIn();  
 		
 		
 		$.ajax({
                 url: 'http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php?service=movie.getTop',
                 type: "POST",
                 crossDomain: true,
-               // contentType: "application/json",
+                contentType: "application/json",
                 data: "{}",
                 dataType: "jsonp",
                 jsonpCallback: "myjson",
 				success: function(data) {
 					//	response_div.html('');	
 			
-					   response_div.append(data);					   
-					   response_div.show('fast');					
+					   response_div.append(data);	
+						
+					   response_div.fadeIn();					
 					   highlightName();					   
 					 },
 				error: function(jqXHR, textStatus, errorThrown) {
@@ -72,13 +87,23 @@
 			$("div:contains('asd')").effect("highlight", {}, 6000);			
 		}
 		
-		function myjson(result){
+		function myjson(data){
 			var response_div = $('#response');
-			alert("hola "+ result.uri + result.year);
-		
+			result = data;
+			response_div.append(
+			'<h4>'+ result.data[0]['Name']+'</h4>'+
+			'<div class="centrado"> <video autoplay controls>'+
+  '<source src="http://people.opera.com/patrickl/articles/introduction-html5-video/videos/turkish.mp4"></video></div>');
+
+		response_div.append('<p>'+result.data[0]['ReleaseYear']+'.</p><p>'+result.data[0]['Synopsis']+'<p>');
 		response_div.show('fast');
 		}
-    </script>
+		 
+		$("#fuzz").css("height", $(document).height());  
+		$(window).bind("resize", function(){  
+		   $("#fuzz").css("height", $(window).height());  
+		});  
+</script>
   
 </html>
 

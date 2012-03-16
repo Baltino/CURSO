@@ -5,11 +5,32 @@
 	-moz-border-radius:3px; /* Firefox */
 	-webkit-border-radius:2px; /* Safari y Chrome*/
 	display:none;
-	margin: 20px 0 0 20px;
+	margin: 20px auto;
 	position:relative;
+	float: center;
+	z-index:200;
+	
 	width: 500px;
 }
 .centrado{
-	margin: 20px auto;
-	width: 80%;
+	margin: 20px 30px 30 40px;
+	padding: auto;
+	
+	position: relative;
+	float: center;
 }
+#fuzz{ 
+	position:absolute; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	z-index:300; 
+	background: black;
+	
+	
+	display:none; 
+	text-align:left;
+}  
+.close{
+	top:0px; 
+	float:right; }  
