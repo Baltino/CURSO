@@ -31,7 +31,7 @@
 				<p data-role="button" onclick="clickBoton()"> Botón </p>
 				<label for="basic">Alias:</label>
 				<input type="text" name="name" id="alias" value=""  />
-				
+				<a href="pages/sample1.php" data-role="button" data-rel="page" data-transition="pop">Sample 1</a>
 				<div id="response"> </div>
 			</div>
 		</div><!-- /content -->
@@ -198,24 +198,10 @@
 		
 		
 		function clickBoton(){
-			//$.post("api/dispatcher.php", { service: "welcome.hello", params: '{"name": "[input alias on textbox]"}'} );
+			
 				var response_div = $('#response');
-			/*	$.post("api/dispatcsher.php",
-				{service: 'welcome.hello', params: {'name': $('#alias').val()}},function(data) {
-						response_div.html('');
-					   
-					   response_div.append(data);
-					   
-					   response_div.show('fast');
-					
-					   
-					   
-					 });
-					 
-				
-		
-			*/
-			$.ajax({
+			$.mobile.showPageLoadingMsg();
+				  $.ajax({
 				url: "api/dispatcher.php",
 				data: {service: 'welcome.hello', params: {'name': $('#alias').val()}},
 				success: function(data) {
@@ -235,6 +221,7 @@
 							response_div.css('background','red');
 						}
 				});
+					
 		}
 		//no funciona. antes si
 		function resaltarNombre(){

@@ -9,3 +9,7 @@
 	position:relative;
 	width: 500px;
 }
+.centrado{
+	margin: 20px auto;
+	width: 80%;
+}
