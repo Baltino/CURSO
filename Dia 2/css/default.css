@@ -5,7 +5,8 @@
 	-moz-border-radius:3px; /* Firefox */
 	-webkit-border-radius:2px; /* Safari y Chrome*/
 	display:none;
-	margin: 20px 0 0 20px;
+	margin: 20px auto;
 	position:relative;
-	width: 500px;
+	width: 800px;
 }
+

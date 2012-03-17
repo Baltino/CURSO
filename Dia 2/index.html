@@ -28,10 +28,10 @@
 
 		<div data-role="content">	
 			<div class="centrado">
-				<p data-role="button" onclick="clickBoton()"> Botón </p>
+				<p data-role="button" onclick="buttonClickMovie()"> Botón </p>
 				<label for="basic">Alias:</label>
 				<input type="text" name="name" id="alias" value=""  />
-				<a href="pages/sample1.php" data-role="button" data-rel="page" data-transition="pop">Sample 1</a>
+				<a href="pages/sample1.php" data-role="button" data-inline="true" data-rel="page" data-transition="pop">Sample 1</a>
 				<div id="response"> </div>
 			</div>
 		</div><!-- /content -->
@@ -144,7 +144,8 @@
 				<img class="image" src="images/acuerdo.jpg" />
 				<p>Los sindicatos siguen negociando con el gobierno bonaerense. 
 				De no acercarse posiciones, podría haber más medidas de fuerza.
-				</p>		
+				</p>	
+			
 			</div><!-- /content -->
 			
 		</div><!-- /page -->
@@ -197,7 +198,7 @@
 		
 		
 		
-		function clickBoton(){
+		function buttonClickWelcome(){
 			
 				var response_div = $('#response');
 			$.mobile.showPageLoadingMsg();
@@ -223,9 +224,79 @@
 				});
 					
 		}
-		//no funciona. antes si
-		function resaltarNombre(){
-			$("div:contains('maxi')").effect("highlight", {}, 6000);			
+		
+		function buttonClickMovie(){
+			var response_div = $('#response');
+			$.mobile.showPageLoadingMsg();
+			$.ajax({
+					url: 'http://albertomiranda.com.ar/html5/bootcamp/api/dispatcher.php?service=movie.getTop',
+					type: "POST",
+					crossDomain: true,
+					contentType: "application/json",
+					data: "{}",
+					dataType: "jsonp",
+					jsonpCallback: "myjson",
+					success: function(data) {
+						//	response_div.html('');	
+				
+						 	
+						   response_div.fadeIn();					
+						 
+						 },
+					error: function(jqXHR, textStatus, errorThrown) {
+								response_div.html('');
+								response_div.append("Error "+errorThrown+": "+ textStatus);
+									
+								response_div.show('fast');
+								response_div.css('background','red');
+							}
+					});
+	
+				
 		}
+				
+		function myjson(data){
+			var response_div = $('#response');
+			var string;
+			result = data;
+			alert("Movies: "+result.data.length);
+			string = '<ul data-role="listview" id="movies" data-theme="a">'+
+			'<li data-role="list-divider" role="heading"> Movies </li>';
+			for(var i=0, len = result.data.length; i < len; i++){
+				string += '<li><a >'+
+				'<img src="'+result.data[i]['BoxArt']['SmallUrl']+'" class="ui-li-thumb">'+result.data[i]['Name']+
+				'<p> Average rating: '+ result.data[i]['AverageRating'] + '</p></a></li>';
+			}
+			
+			string += '</ul>';
+			response_div.html(string);
+			$('#movies').listview();
+			response_div.show('fast');
+			
+			//delego el click al handler
+			$('#movies').on('click', 'a', function () {
+				//movie object json 
+				var movie = result.data[$(this).parents('li').eq(0).index()];
+				dialog = '<div data-role="dialog" id="movieDesc">'+
+							'<div data-role="header">'+
+								'<h1>'+movie['Name']+' ('+movie['ReleaseYear']+')</h1>'+
+							'</div>'+			
+							'<div data-role="content">	'+
+								'<img class="image" src="'+movie['BoxArt']['LargeUrl']+' />'+
+								'<p>'+
+								movie['Synopsis']+
+								'</p>'+
+							'</div>'+
+						'</div>';
+					
+				//	$(dialog).appendTo('#inicial');
+					
+					
+				});
+				
+			//
+		}
+			 
+		  
     </script>
 </html>
