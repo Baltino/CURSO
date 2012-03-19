@@ -101,48 +101,7 @@ and open the template in the editor.
             var movie_title;
             var movie_rating;
             var movie_cast;
-          /*  de esta manera, no puedo extenderla
-            function getId(){
-                return movie_id;
-            }
-            function getTitle(){
-                return movie_title;
-            }
-            function getRating(){
-                return movie_rating;
-            }
-
-            function setId(id){
-                movie_id = id;
-            }
-            function setTitle(title){
-                movie_title = title 
-            }
-            function setRating(rating){
-                movie_rating = rating;
-            }
-
-            function playMovie(){
-                $('#inicial').trigger('playEvent',this);
-                console.log('PlayEvent triggered.');
-            }
-            function stopMovie(){
-                $('#inicial').trigger('StopEvent',this);
-                console.log('StopEvent triggered');
-            }
-            
-            //return an anonymous object with the methods
-            return{
-                setId: setId,
-                setRating: setRating,
-                setTitle: setTitle,
-                getId: getId,
-                getRating: getRating,
-                getTitle: getTitle,
-                play: playMovie,
-                stop: stopMovie
-            }
-        */
+          
             Movie.prototype.getId = function(){
                 return this.movie_id;
             }
@@ -168,6 +127,8 @@ and open the template in the editor.
                 this.movie_cast = cast;
             }
             
+            //me pareció mejor tener un arreglo de Objetos Actor antes que los strings
+            //con el nombre, como muestra el ejemplo. No es tan acotado.            
             Movie.prototype.getCast = function(){
                 var toR = [];
                 for(var i=0,len=this.movie_cast.length; i<len; i++){
