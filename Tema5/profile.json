@@ -1,0 +1,18 @@
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+data = {
+    name : "José Maximiliano Aragón",
+    address: "Alem 1220",
+    dob: "February 1st, 1989",
+    education: "Universidad Nacional del Sur",
+    workExp: [
+        { place: "nulo1" },
+        { place: "nulo2" },
+        { place: "nulo3" },
+    ],    
+    contacts: "15",
+    website: "www.9gag.com"
+};

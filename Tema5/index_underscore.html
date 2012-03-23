@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Templates</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="js/underscore-min.js"></script>
+        <script src="profile.json"></script>
+    </head>
+    <body>
+        
+        <div id="profile">
+            
+        </div>
+        
+    </body>
+    <script>
+        $(document).ready(function(){
+            var template, html;
+
+            template = "<h1> <%= name %> </h1>";
+            template += "<h2> Personal info</h2>";
+            template += "<ul>";
+            template += "<li> Address: <%= address %> </li>";
+            template += "<li> DoB: <%= dob %> </li>";
+            template += "</ul>";
+            template += "<h2> Professional</h2>"
+            template += "<ul> ";
+            template += "<li> Education: <%= education %> </li>";
+            template += "<li> Work Expierence: ";
+                template += "<ul>";
+                template += "<% _.map({one : 1, two : 2, three : 3}, function(num, key){ return num * 3; }); %>";
+                template += "</ul>";
+            template += "<li> Contacts: <%= contacts %> </li>";
+            template += "<li> Website: <%= website %> </li>";
+            template += "</ul>";
+            
+            html = _.template(template, data);
+            $('#profile').html(html);           
+        }
+        );
+            
+            
+        </script>
+</html>
