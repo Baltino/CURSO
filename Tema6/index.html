@@ -1,0 +1,98 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+         <meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<link rel="stylesheet" href="css/default.css" type="text/css" />
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	
+        <script src="js/underscore-min.js"></script>
+        <script src="js/backbone-min.js"></script>
+        <script src="js/backbone-localstorage.js"></script>
+        <script src="js/moviesList.js"></script>
+        
+    </head>
+    <body>
+        <!-- Start of first page -->
+	<div data-role="page" id="inicial">
+            <div id="moviesApp">
+
+                <div data-role="header" data-id="menu" >
+                    <h1>Movies List</h1>
+                    
+                </div><!-- /header -->
+
+                <div data-role="content">
+                    
+                    <input id="new-movie" type="text" placeholder="Movie title">
+
+                    
+                    <div id="left-bar">
+                        <ul  id="movies-list"  >
+                            
+                        </ul>
+                    </div>
+                    <div id="right-bar">
+                        
+                    </div>
+                    
+
+                </div><!-- /content -->
+
+                <div data-role="footer">
+                    
+                    <div id="movie-count">Como agregar elementos a la lista que tomen
+                        las clases de jquery mobile</div>
+                </div><!-- footer -->
+
+            </div>
+        </div>
+        <script type="text/template" id="item-template">
+            
+                <div class="view">
+                    <a><%= title %></a>            
+                    <div id="iconsDiv">
+                        <img id="edit" src="images/edit.png" class="icons"/>
+                        <img id="remove" src="images/remove.png" class="icons"/>
+
+                </div>
+                </div>
+               
+            
+        </script>
+        <script type="text/template" id="details-template">
+            <div class="details">
+                <h3><%= title %></h3>
+               
+                <p><%= rating %></p>
+                
+                <p>Synopsis: <%= synopsis %></p>
+             </div>   
+
+               
+            
+        </script>
+        <script type="text/template" id="edit-details-template">
+            <div class="editing">
+                <input id="title" class="edit" type="text" value="<%= title %>" />
+                <input id="rating" class="edit" type="text" value="<%= rating %>" />
+                <textarea id="synopsis" class="edit"><%= synopsis %></textarea>
+            </div>
+        </script>
+        
+       
+        <script type="text/template" id="stats-template">
+            <% if (done) { %>
+                <a id="clear-completed">Clear <%= done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+            <% } %>
+            <div class="movies-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+        </script>
+    </body>
+</html>

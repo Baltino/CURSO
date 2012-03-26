@@ -1,0 +1,42 @@
+/* 
+    Document   : default
+    Created on : 24/03/2012, 18:51:11
+    Author     : Maxi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#left-bar{ 
+    display: inline;
+    float:left;
+    width:45%;
+    margin: 30px auto 30px 0;
+}
+
+#right-bar{
+    display: inline;
+    float: right;
+    width: 45%;
+    margin: 30px 0 30px auto;
+}
+
+.icons{
+    width: 15px;
+    height: 15px;
+    cursor:pointer;
+}
+
+#iconsDiv{
+    float:right;
+}
+#movies-list{
+    list-style-image:none;
+}
+
+.edit{
+    display: block;
+}
+
+.wrapper{
+    
+}
