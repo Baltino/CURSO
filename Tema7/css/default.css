@@ -1,0 +1,254 @@
+/* 
+    Document   : default
+    Created on : 28/03/2012, 11:03:04
+    Author     : Maxi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+body{
+    background-color: tan;
+}
+
+header,
+nav, 
+section, 
+article, 
+aside, 
+footer {
+        display: block
+}
+
+a {
+    color: #267;
+    text-decoration: underline
+}
+a:hover {
+    color: #722
+}
+
+p {
+    margin: 0 0 1em
+}
+
+header {
+        color: #007e99;
+        background-color: burlywood;
+        font-size: 1.5em;
+        padding: 20px 10px;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);;
+        text-align: center;
+}
+header a:nth-of-type(1){
+    color: beige;
+}
+header a:nth-of-type(2){
+    color: bisque;
+}
+
+
+header span {
+        color: #722
+}
+header .sample {
+        font-size: .6em;
+        margin: 10px 0 0
+}
+nav {
+    font-size: 1.5em;
+    margin: 5px auto;
+    padding: 20px 50px 5px;
+    text-align: center;
+    border-bottom: #722 inset;
+    
+}
+nav li {
+        display: inline;
+        margin: 0 auto;
+        border-right: #722 inset;
+}
+nav li:first-child {
+        margin-left: 0;
+        border-left: #722 inset;
+}
+
+* html nav ul {
+        margin: 0 auto;
+}
+nav span,
+nav a {
+        padding: 3px 15px 4px;
+        text-decoration: none;
+}
+nav a:hover{
+     text-decoration: underline;
+    color: white;
+}
+nav span {
+        background: #722;
+        color: #fff;
+}
+
+section {
+        float: left;
+        padding: 35px 0;
+        position: relative;
+        width: 70%
+}
+section .sample {
+        font-size: 2.2em;
+        top: 0
+}
+section article {
+        margin: 0 50px 40px;
+        padding: 25px 0 0;
+        position: relative
+}
+section header {
+        font-size: 1em;
+        padding: 0;
+}
+section h1 {
+        font-size: 2.3em;
+}
+
+footer {
+        clear: both;
+        color: #777;
+        padding: 10px 50px;
+        
+        border-top: gray dotted;
+        
+}
+address{
+    font-style: normal;
+    font: bold small monospace;
+}
+footer .sample {
+        font-size: 2.2em
+}
+
+
+figcaption{
+    margin: 0 auto;
+    
+}
+aside{
+    background-color: beige;
+    float:right;
+    width: 25%;
+    margin: 10% 0px auto;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    border-radius:5px;
+    -moz-border-radius:5px; /* Firefox */
+    -webkit-border-radius:5px; /* Safari y Chrome*/
+    -moz-transform:rotate(45deg);
+-webkit-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+    
+}
+
+.hiOne{
+    background-color: seagreen;
+}
+.hiTwo{
+    background-color: darkgreen;
+}
+.hiThree{
+    background-color: darkolivegreen;
+}
+
+span[class^="hi"]{
+    background-color: yellow;
+}
+span[class$="One"]{
+    background-color: green;
+}
+
+/*
+replace all the prevs ones
+*/
+span[class*='hi']{
+    background-color: white;
+}
+span[class*='One']{
+    background-color: white;
+}
+
+
+/**
+
+*/
+p:empty{
+    background-color: blue;
+}
+
+article{
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);;
+         border-radius:5px;
+    -moz-border-radius:5px; /* Firefox */
+    -webkit-border-radius:5px; /* Safari y Chrome*/ 
+}
+@media (min-width: 1200px) {
+	/* 633px grid (88x6 col, 21x5 gut; 88+21+88+21+88+21+88+21+88+21+88) */
+	div.multicolumn {
+            -moz-column-count: 4;
+            -moz-column-gap: 20px;
+            -webkit-column-count: 4;
+            -webkit-column-gap: 20px;
+            column-count: 4;
+            column-gap: 20px;
+        }
+        figure img{
+            width: 40%;
+            
+            margin-right: 0;
+        }
+        .figures{
+            margin: 0 auto;
+            width: 100%;
+        }
+}
+@media (max-width: 1200px) and (min-width: 800px){
+	div.multicolumn {
+            -moz-column-count: 3;
+            -moz-column-gap: 20px;
+            -webkit-column-count: 3;
+            -webkit-column-gap: 20px;
+            column-count: 3;
+            column-gap: 20px;
+        }
+        figure img{
+            width: 30%;
+           
+        }
+        .figures{
+            margin: 0 auto;
+            width: 100%;
+        }
+        header{
+            font-size: 1.5em;
+            padding: 5px;
+        }
+        aside{
+            width: 20%;
+        }
+}
+
+@media (max-width: 800px){
+    figure{
+        display: none;
+    }
+    header{
+        font-size: 1em;
+        padding: 2px;
+    }
+    aside{
+        width: 16%;
+    }
+}
