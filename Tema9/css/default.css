@@ -1,0 +1,41 @@
+/* 
+    Document   : default
+    Created on : 29/03/2012, 09:08:05
+    Author     : Maxi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    background-color: tan;
+}
+
+header,
+nav, 
+section, 
+article, 
+aside, 
+footer {
+        display: block
+}
+
+#dropZone{
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width:80%;
+    height: 100px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#geo-map{
+    width: 400px; 
+    height: 400px;
+    display:block;
+}
