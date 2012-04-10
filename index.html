@@ -6,36 +6,23 @@
             </title>
             <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
             <link rel="stylesheet" href="css/main.css" />
+            <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+            <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+            <script data-main="js/main.js" src="js/require.js"></script>
 	</head>
 	<body>
-         
-            <div data-role="page" id="home">
-                <div data-role="header">
-                    <h1><img src="css/images/icono_twitter.png"/>Twitter API</h1>
+            <div data-role="page" id="home" class="login">
+                <div data-role="header" class="titulo" data-theme="A">
+                    <span ><img src="css/img/icono_twitter.png"/>My Twitter</span>
                 </div>
-                <div data-role="content"> 
-                    <div class="divInput">
-                        <span id="textUser" class="valueUser">Nombre de usuario o correo electr&oacute;nico</span>
-                        <input type="text" id="user" value=""/>
-                    </div>                          
-                    <div class="divInput">
-                        <span id="textPass" class="valuePass">Contrase&ntilde;a</span>
-                        <input type="password" id="password"/>
-                    </div> 
-                    <div class="divBoton">
-                        <button id="login">Ingresar</button>
-                    </div> 
+                <div data-role="content" id="login" class="login"> 
+                    <span id="linkLogin" class="linkLogin">Login with Twitter</span>
                 </div>
-                <div data-role="footer">
+                <div data-role="footer" data-theme="B">
                     <div class="footer">
-                        BootCampHTML5
+                        BootCampHTML5 
                     </div>
                 </div> 
             </div>           
-            <script src="js/lib/jquery-1.7.1.min.js"></script>
-            <script src="js/lib/backbone-min.js"></script>
-            <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
-            <script src="js/lib/underscore-min.js"></script>
-            <script src="js/main.js"></script>
 	</body>
 </html>
