@@ -1,13 +1,38 @@
-
-<!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <script data-main="scripts/main" src="scripts/require.js"></script>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+	<head>
+            <meta charset="utf-8"/>
+            <title>
+            HTML5 - BootCamp
+            </title>
+            <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
+            <link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+         
+            <div data-role="page" id="home">
+                <div data-role="header">
+                    <h1>Twitter login</h1>
+                </div>
+                <div data-role="content"> 
+                    <div class="divInput">
+                        <span id="textUser" class="valueUser">Nombre de usuario o correo electr&oacute;nico</span>
+                        <input type="text" id="user" value=""/>
+                    </div>                          
+                    <div class="divInput">
+                        <span id="textPass" class="valuePass">Contrase&ntilde;a</span>
+                        <input type="password" id="password"/>
+                    </div> 
+                </div>
+                <div data-role="footer">
+                    <div class="footer">
+                        BootCampHTML5
+                    </div>
+                </div> 
+            </div>           
+            <script src="js/lib/jquery-1.7.1.min.js"></script>
+            <script src="js/lib/backbone-min.js"></script>
+            <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
+            <script src="js/lib/underscore-min.js"></script>
+            <script src="js/main.js"></script>
+	</body>
 </html>

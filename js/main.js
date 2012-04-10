@@ -1,3 +1,29 @@
+$("#textUser").click(function(event) {
+    $("#user").focus();
+});
+
+$("#user").keypress(function(event) {
+    $("#textUser").hide();
+});
+
+$("#user").blur(function(event) {
+    if ($("#user").val() == "")
+        $("#textUser").show();
+});
+
+$("#textPass").click(function(event) {
+    $("#password").focus();
+});
+
+$("#password").keypress(function(event) {
+    $("#textPass").hide();
+});
+
+$("#password").blur(function(event) {
+    if ($("#password").val() == "")
+        $("#textPass").show();
+});
+
 require.config({
     paths: {
         jQuery: 'lib/jquery-1.7.1.min',
@@ -15,3 +41,4 @@ require(["order!jQuery","order!jQueryMobile","views/AppView"],
        });
     }
 );
+   

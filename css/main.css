@@ -1,0 +1,29 @@
+.footer {
+    font-size:13px;
+    display:block;
+    padding:5px 0px 5px 0px;
+    text-align:center;
+}
+
+.divInput {
+    padding-bottom:30px;   
+}
+
+
+.valueUser {
+    display:block;
+    position:absolute;
+    top:70px;
+    left:25px;
+    color:#999;
+    background-color: transparent;
+}
+
+.valuePass {
+    display:block;
+    position:absolute;
+    top:137px;
+    left:25px;
+    color:#999;
+    background-color: transparent;
+}
