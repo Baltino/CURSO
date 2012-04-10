@@ -5,25 +5,42 @@
     text-align:center;
 }
 
-.divInput {
-    padding-bottom:30px;   
+img {
+    height: 50px;
+    width: 50px;
+    vertical-align:middle;
+    padding-right: 5px;
 }
 
+.divInput {
+    padding-bottom:15px;
+    width: 40%;
+    margin:auto;
+}
+
+.divBoton {
+    padding-bottom:15px;
+    width: 30%;
+    margin:auto;
+}
 
 .valueUser {
     display:block;
     position:absolute;
-    top:70px;
-    left:25px;
+    top:100px;
+    left:auto;
     color:#999;
+    padding-left:7px;
     background-color: transparent;
 }
 
 .valuePass {
     display:block;
     position:absolute;
-    top:137px;
-    left:25px;
+    top:155px;
+    left:auto;
     color:#999;
+    padding-left:7px;
     background-color: transparent;
 }
+
