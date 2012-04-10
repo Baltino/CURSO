@@ -11,27 +11,16 @@
             <script data-main="js/main.js" src="js/require.js"></script>
 	</head>
 	<body>
-         
-            <div data-role="page" id="home">
-                <div data-role="header">
-                    <h1><img src="css/img/icono_twitter.png"/>My Twitter</h1>
+            <div data-role="page" id="home" class="login">
+                <div data-role="header" class="titulo" data-theme="A">
+                    <span ><img src="css/img/icono_twitter.png"/>My Twitter</span>
                 </div>
-                <div data-role="content" id="login"> 
-                    <div class="divInput">
-                        <input type="text" id="user" placeholder="Nombre de usuario o correo electronico"/>
-                        <span id="errorU" class="error"></span>
-                    </div>                          
-                    <div class="divInput">
-                        <input type="password" id="password" placeholder="Contraseña"/>
-                        <span id="errorP" class="error"></span>
-                    </div> 
-                    <div class="divBoton">
-                        <button id="botonLogin">Ingresar</button>
-                    </div> 
+                <div data-role="content" id="login" class="login"> 
+                    <span class="linkLogin">Login with Twitter</span>
                 </div>
-                <div data-role="footer">
+                <div data-role="footer" data-theme="B">
                     <div class="footer">
-                        BootCampHTML5
+                        BootCampHTML5 
                     </div>
                 </div> 
             </div>           
