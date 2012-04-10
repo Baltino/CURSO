@@ -1,76 +1,108 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
         var loginView = Backbone.View.extend({
-            tagName: "li",
-           
-            // Cache the template function for a single item.
-            template: _.template($('#item-template').html()),
+            el: $("#login"),
             
             events: {
-                "dblclick span.title": "editTitle",
-                "dblclick span.year": "editYear",
-                "dblclick span.genre": "editGenre",
-                "dblclick div.synopsis": "editSyn",
-                "keypress .title-input": "updateOnEnter",
-                "keypress .year-input": "updateOnEnter",
-                "keypress .genre-input": "updateOnEnter",
-                "keypress .synopsis-input": "updateOnEnter",
-                "click span.destroy": "clear"
-           //     "blur div.movie-view" : "close"
+                "keypress #user": "keyUser",
+                "keypress #password": "keyPass",
+                "click #botonLogin": "verificarCampos"
             },
-            
             
             initialize: function() {
-                this.model.view = this;
-                this.model.bind('change', this.render, this);
-                this.model.bind('destroy', this.remove, this);
+              this.inputU = this.$("#user");
+              this.inputP = this.$("#password");
+              
+              this.errorU = this.$("#errorU");
+              this.errorU.hide();
+              this.errorP = this.$("#errorP");
+              this.errorP.hide();
             },
             
-            render: function() {
-                this.$el.html(this.template(this.model.toJSON()));
-                return this;
+            keyUser: function() {
+              this.errorU.hide();
             },
             
-            editTitle: function() {
-                $(this.el).addClass('editing');
-                this.$('.title-input').focus();
+            keyPass: function() {
+              this.errorP.hide();
+            },
+            
+            verificarCampos: function() {
+                if (this.inputU.val().match(/@/)) {
+                    this.valUs = this.verificarMail(this.inputU.val());
+                }
+                else {
+                    this.valUs = this.verificarUsuario(this.inputU.val());
+                }
+
+                this.valPass = this.verificarPass(this.inputP.val());
+
+                if (this.valUs && this.valPass) {
+                    alert("Usuario valido");
+                }
+                else {
+                    alert("Usuario invalido");
+                }
                 
             },
-            editYear: function() {
-                $(this.el).addClass('editing');
-                this.$('.year-input').focus();
-                
-            },
-            editGenre: function() {
-                $(this.el).addClass('editing');
-                this.$('.genre-input').focus();
-            },
-            editSyn: function() {
-                $(this.el).addClass('editing');
-                this.$('.synopsis-input').focus();
+            
+            verificarUsuario: function(us) {
+                if (!us){
+                    this.errorU.show("slow");
+                    this.errorU.html("<img class=\"imgError\" src=\"css/img/error.png\"/> Usuario o correo vacio.");
+                    return = false;
+                }
+                else {
+                    if (!us.match(/^[a-zA-Z0-9_]+$/)){
+                        this.errorU.show("slow");
+                        this.errorU.html("<img class=\"imgError\" src=\"css/img/error.png\"/> El nombre de usuario contiene caracteres invalidos.");
+                        return false;
+                    }
+                    else {
+                        this.errorU.hide();
+                        return true;
+                    }
+                }
             },
             
-            close: function(){
-                this.model.save({title: this.$('.title-input').val(), year: this.$('.year-input').val(),genre: this.$('.genre-input').val(),synopsis: this.$('.synopsis-input').val()});
-                console.log("Movie edited: "+this.model.get("title")+' ['+this.model.get("year")+', '+this.model.get("genre")+' ]');
-                $(this.el).removeClass('editing');
-            },
-     
-            clear: function(){
-                this.model.destroy();
+            verificarMail: function(us) {
+                if (!this.inputP.val()){
+                    this.errorP.show("slow");
+                    this.errorP.html("<img class=\"imgError\" src=\"css/img/error.png\"/> Contraseña vacia.");
+                    this.valP = false;
+                }
+                else {   
+                    if (!us.match(/^[a-zA-Z0-9_.@]+$/)){
+                        this.errorU.show("slow");
+                        this.errorU.html("<img class=\"imgError\" src=\"css/img/error.png\"/> El nombre de usuario contiene caracteres invalidos.");
+                        return false;
+                    }
+                    else {
+                        if (us.match(/[.]/) && (us.match(/[a-z]/) || us.match(/[A-Z]/) || us.match(/[0-9]/))) {
+                            this.errorU.hide();
+                            return true;
+                        }
+                        else {
+                            this.errorU.show("slow");
+                            this.errorU.html("<img class=\"imgError\" src=\"css/img/error.png\"/> El correo electronico esta mal formado.");
+                            return false;
+                        }
+                    }
+                }
             },
             
-            updateOnEnter: function(e) {
-                if (e.keyCode == 13) this.close();
-            },
-            
-            remove: function(){
-              $(this.el).remove();
+            verificarPass: function(us) {
+                if (!us.match(/^[a-zA-Z0-9.]+$/)){
+                    this.errorP.show("slow");
+                    this.errorP.html("<img class=\"imgError\" src=\"css/img/error.png\"/> El password contiene caracteres invalidos.");
+                    return false;
+                }
+                else {
+                    this.errorP.hide();
+                    return true;
+                }
             }
-
-
-            
+           
         })
-
         return loginView;    
 });
