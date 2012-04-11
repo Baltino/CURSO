@@ -17,12 +17,18 @@ img {
 }
 
 .linkLogin {
-    font-size:20px;
     text-align:center;
     vertical-align:middle;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom:30px;
     text-decoration:none;
+    background-image:url(img/sign-in-2.png);
+    background-repeat:no-repeat;
+    height:64px;
+    width:440px;
+    background-position:center;
+    border: none;
+
 }
 
 .titulo {
