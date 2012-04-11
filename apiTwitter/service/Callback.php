@@ -7,7 +7,7 @@ include_once('config.php');
 /* If the oauth_token is old redirect to the connect page. */
 if (isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] !== $_REQUEST['oauth_token']) {
   session_destroy();
-  header('Location: /');
+  header('Location: http://g3.bootcamp.dev.globant.com/');
 }
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
@@ -19,5 +19,5 @@ $_SESSION['oauth_token_secret'] = $result['oauth_token_secret'];
 $_SESSION['user_id'] = $result['user_id'];
 $_SESSION['screen_name'] = $result['screen_name'];
 
-header('Location: /#/login.html');
+header('Location: /login.html');
 ?>
