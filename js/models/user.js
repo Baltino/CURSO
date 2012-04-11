@@ -1,6 +1,17 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
         var User = Backbone.Model.extend({
+            url:"./apiTwitter/service/Prub.php",
+            
+            options:{
+                success:function(data) {
+                    alert("pepe");
+                },
+                error:function() {
+                    alert("error");
+                }
+            },
+            
             defaults: function() {
                 return {
                     twitterId: '',
@@ -29,16 +40,7 @@ define(["underscore","backbone"],
                 this.destroy();
             },
             
-            url:"Prueba.php",
             
-            options:{
-                success:function(data) {
-                    alert("pepe");
-                },
-                error:function() {
-                    alert("error");
-                }
-            }
             
         })
 

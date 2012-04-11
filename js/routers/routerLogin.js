@@ -1,14 +1,18 @@
-define(["underscore","backbone","models/user"],
-    function(_, Backbone,User) {
+define(["underscore","backbone"],
+    function(_, Backbone) {
         var loginRouter = Backbone.Router.extend({
             routes: {
-                "loginT": "serviceLogin"
+                "loginT": "serviceLogin",
+                "inicio": "estasLogueado"
+            },
+            
+            estasLogueado: function() {
+              alert("estas loguedo");  
             },
             
             serviceLogin: function() {
               alert("creo usuario");
-              this.usuario= new User;
-              Backbone.sync("create",this.usuario,this.usuario.options);
+              this.navigate("apiTwitter/service/RequesToken.php",true);
               alert("llamo");
             }
         });
