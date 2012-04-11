@@ -14,8 +14,8 @@ define(["underscore","backbone"],
             serviceLogin: function() {
               alert("creo usuario");
               
-              $(location).attr('href',"apiTwitter/service/RequestToken.php");
-              //this.navigate("/apiTwitter/service/RequestToken.php",{trigger: true});
+              //$(location).attr('href',"apiTwitter/service/RequestToken.php");
+              this.navigate("/apiTwitter/service/RequestToken.php",{trigger: true});
               alert("llamo");
             }
         });
