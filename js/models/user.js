@@ -27,8 +27,19 @@ define(["underscore","backbone"],
             
             clear: function() {
                 this.destroy();
-            } 
-
+            },
+            
+            url:"Prueba.php",
+            
+            options:{
+                success:function(data) {
+                    alert("pepe");
+                },
+                error:function() {
+                    alert("error");
+                }
+            }
+            
         })
 
         return User;    
