@@ -8,11 +8,14 @@ define(["underscore","backbone"],
             
             estasLogueado: function() {
               alert("estas loguedo");  
+              this.navigate("/login.html",true);
             },
             
             serviceLogin: function() {
               alert("creo usuario");
-              this.navigate("apiTwitter/service/RequesToken.php",true);
+              
+              $(location).attr('href',"apiTwitter/service/RequestToken.php");
+         //     this.navigate("/apiTwitter/service/RequestToken.php",{replace: true});
               alert("llamo");
             }
         });

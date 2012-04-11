@@ -19,5 +19,5 @@ $_SESSION['oauth_token_secret'] = $result['oauth_token_secret'];
 $_SESSION['user_id'] = $result['user_id'];
 $_SESSION['screen_name'] = $result['screen_name'];
 
-header('Location: /login.html');
+header('Location: /#/login.html');
 ?>
