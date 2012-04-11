@@ -6,10 +6,11 @@ require.config({
 });
 
 require(["routers/routerLogin","backbone", "views/viewHome"],
-    function(routerLogin,Backbone) { 
+    function(routerLogin,Backbone,loginView) { 
        $(function() {
             var app = new routerLogin;
-            Backbone.history.start({pushState: true, root: '/'});
+            //en sprint1 va la root :)
+            Backbone.history.start({pushState: true, root: '/sprint1/'});
             
             var vHome = new loginView;
             
