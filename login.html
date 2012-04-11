@@ -1,15 +1,28 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>My Twitter</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Estás logueado </h1>
-        <h2>Vamos carajo!</h2>
-    </body>
+	<head>
+            <meta charset="utf-8"/>
+            <title>
+            MyTwitt [bootcamp]
+            </title>
+            <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
+            <link rel="stylesheet" href="css/main.css" />
+            <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+            <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+            <script data-main="js/mainLogin.js" src="js/require.js"></script>
+	</head>
+	<body>
+            <div data-role="page" id="home" class="login">
+                <div data-role="header" class="titulo" data-theme="A">
+                    <span ><img src="css/img/icono_twitter.png"/>MyTwitt</span>
+                </div>
+                <div data-role="content" id="login" class="login"> 
+                    <h3><span id="user"></span> estas logueado ! ...</h3>
+                </div>
+                <div data-role="footer" data-theme="B">
+                    <div class="footer">
+                        BootCampHTML5 
+                    </div>
+                </div> 
+            </div>           
+	</body>
 </html>

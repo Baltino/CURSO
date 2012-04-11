@@ -1,17 +1,7 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
         var User = Backbone.Model.extend({
-            url:"./apiTwitter/servicex/Prueba.php",
-            
-            options:{
-                success:function(data) {
-                    alert("pepe");
-                },
-                error:function() {
-                    alert("error");
-                }
-            },
-            
+          
             defaults: function() {
                 return {
                     twitterId: '',
@@ -34,12 +24,18 @@ define(["underscore","backbone"],
                 if (!this.get("profileImg")) {
                     this.set({"profileImg": this.defaults.title});
                 }
+                this.render();
+            },
+            
+            render: function() {
+              alert("render");
+              this.$("#user").html(this.get("screenName"));
+              alert("escribio snombre");
             },
             
             clear: function() {
                 this.destroy();
-            },
-            
+            }          
             
             
         })
