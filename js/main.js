@@ -9,9 +9,7 @@ require(["routers/routerLogin","backbone"],
     function(routerLogin,Backbone) { 
        $(function() {
             var app = new routerLogin;
-            alert("lalala 1");
             Backbone.history.start();
-            alert("lalala2");
        });
     }
 );
