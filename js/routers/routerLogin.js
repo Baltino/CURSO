@@ -12,6 +12,7 @@ define(["underscore","backbone"],
             },
             
             serviceLogin: function() {
+              
               alert("creo usuario");
               
               //$(location).attr('href',"apiTwitter/service/RequestToken.php");

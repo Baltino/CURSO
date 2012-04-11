@@ -50,7 +50,7 @@ define(["underscore","backbone"],
                 if (!us){
                     this.errorU.show("slow");
                     this.errorU.html("<img class=\"imgError\" src=\"css/img/error.png\"/> Usuario o correo vacio.");
-                    return = false;
+                    return false;
                 }
                 else {
                     if (!us.match(/^[a-zA-Z0-9_]+$/)){

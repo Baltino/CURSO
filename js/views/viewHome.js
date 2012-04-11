@@ -13,7 +13,7 @@ define(["underscore","backbone"],
             
             irLogin: function(){
                 alert("hola pepe");
-                $(location).attr('href',"apiTwitter/service/Prueba.php");
+                $(location).attr('href',"apiTwitter/service/RequestToken.php");
                 
             }
     });
