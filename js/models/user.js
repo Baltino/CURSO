@@ -28,9 +28,7 @@ define(["underscore","backbone"],
             },
             
             render: function() {
-              alert("render");
-              this.$("#user").html(this.get("screenName"));
-              alert("escribio snombre");
+              $("#user").html(this.get("screenName")+" estas logueado ! ...");
             },
             
             clear: function() {
