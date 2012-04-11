@@ -1,7 +1,7 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
         var User = Backbone.Model.extend({
-            url:"./apiTwitter/service/Prub.php",
+            url:"./apiTwitter/servicex/Prueba.php",
             
             options:{
                 success:function(data) {

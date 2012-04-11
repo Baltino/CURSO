@@ -9,7 +9,8 @@ require(["routers/routerLogin","backbone"],
     function(routerLogin,Backbone) { 
        $(function() {
             var app = new routerLogin;
-            Backbone.history.start({pushState: true, root: '/'});
+            Backbone.history.start({pushState: true, root: '/sprint1/'});
+            app.navigate('/login.html',{trigger: true});
        });
     }
 );
