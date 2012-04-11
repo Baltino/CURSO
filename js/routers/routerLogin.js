@@ -1,7 +1,7 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
         var loginRouter = Backbone.Router.extend({
-            routers: {
+            routes: {
                 "/loginT": "serviceLogin"
             },
 
