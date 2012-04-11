@@ -5,11 +5,13 @@ require.config({
     }
 });
 
-require(["views/viewLogin"],
-    function(viewLogin) { 
-         
+require(["routers/routerLogin","backbone"],
+    function(routerLogin,Backbone) { 
        $(function() {
-            var app = new viewLogin;
+            var app = new routerLogin;
+            alert("lalala 1");
+            Backbone.History.start();
+            alert("lalala2");
        });
     }
 );
