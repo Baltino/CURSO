@@ -17,5 +17,5 @@ define(["underscore","backbone"],
                 
             }
     });
-    return loginView;
+    return LoginView;
 });

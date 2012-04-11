@@ -8,6 +8,9 @@ require.config({
 require(["models/user"],
     function(user) { 
        $(function() {
+            
+            
+            
             url = "apiTwitter/service/UserCredentials.php";
             $.getJSON(url,
                 function(data) {
