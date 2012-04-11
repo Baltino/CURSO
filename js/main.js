@@ -5,11 +5,13 @@ require.config({
     }
 });
 
-require(["routers/routerLogin","backbone"],
+require(["routers/routerLogin","backbone", "views/viewHome"],
     function(routerLogin,Backbone) { 
        $(function() {
             var app = new routerLogin;
             Backbone.history.start({pushState: true, root: '/'});
+            
+            var vHome = new loginView;
             
        });
     }
