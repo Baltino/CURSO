@@ -11,6 +11,30 @@ img {
     height:75px;
 }
 
+.tweets {
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.tweetarroba {
+    color:lightgray;
+}
+
+.tweet {
+    text-align: left;
+    color:black;
+}
+
+.tweetname {
+    font-weight: bold;
+}
+
+.tweetid {
+    color:gray;
+}
+
 .login {
     background-color:white;
     text-align:center;
