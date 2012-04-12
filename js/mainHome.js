@@ -5,18 +5,11 @@ require.config({
     }
 });
 
-require(["models/user"],
-    function(user) { 
+require(["views/HomeView"],
+    function(HomeView) { 
        $(function() {
             
-            
-            
-            url = "apiTwitter/service/UserCredentials.php";
-            $.getJSON(url,
-                function(data) {
-                    var credencial = new user({screenName: data.screen_name,twitterId: data.user_id});
-                }
-            );
+            var home = new HomeView;
             
        });
     }

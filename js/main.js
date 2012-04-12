@@ -12,7 +12,7 @@ require(["backbone","routers/routerLogin","views/LoginView"],
             //en sprint1 va la root :)
             //Backbone.history.start({pushState: true, root: '/'});
             
-            var vHome = new LoginView;
+            var login = new LoginView;
             
        });
     }
