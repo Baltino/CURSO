@@ -1,11 +1,11 @@
-define(["underscore","backbone","models/User","collections/TwittList"], 
+define(["underscore","backbone","models/User","views/TwittView","collections/TwittList"], 
     function(_, Backbone,User,TwittList ) { 
-        
+        var Twitts = new TwittList;
         var HomeView = Backbone.View.extend({
             el: $("#user"),
             
             credentials: new User,
-            Twitts: new TwittList,
+            //Twitts: new TwittList,
             
             events: {
                                  
@@ -13,17 +13,21 @@ define(["underscore","backbone","models/User","collections/TwittList"],
             
              
             initialize: function() {
-                
-                //esto para la lsita de twitts
-               // Twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
-             //   Twitts.bind('reset', this.addAll, this);//lo mismo
-              //  Twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
-
-              //  this.main = $('#main'); //main es el div de la lista, para ocultarlo si no hay twitts, lo sacamos si quieren
-
-              //  Twitts.fetch();
-                //hasta aca
+                $.getJSON("apiTwitter/service/HomeTimeline.php",function(json){
+                    //crear las vistas con sus modelos
+                });
+            
                 this.createAll();
+                //esto para la lsita de twitts
+                Twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
+                Twitts.bind('reset', this.addAll, this);//lo mismo
+                Twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
+
+                this.main = $('#main'); //main es el div de la lista, para ocultarlo si no hay twitts, lo sacamos si quieren
+
+                Twitts.fetch();
+                //hasta aca
+                
                 _.bindAll(this, "render","updateCredentials");
                 var cred = this;
                 url = "apiTwitter/service/UserCredentials.php";

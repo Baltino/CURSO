@@ -5,8 +5,8 @@ require.config({
     }
 });
 
-require(["views/HomeView"],
-    function(HomeView) { 
+require(["backbone","views/HomeView"],
+    function(Backbone,HomeView) { 
        $(function() {
             
             var home = new HomeView;
