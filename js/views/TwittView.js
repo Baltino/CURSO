@@ -1,7 +1,7 @@
   define(["underscore","backbone","models/Twitt","collections/TwittList"], 
     function(_, Backbone, Twitt, TwittList) { 
   
-        var TwittsView = Backbone.View.extend({
+        var TwittView = Backbone.View.extend({
 
             tagName:  "li",
 
@@ -19,6 +19,6 @@
 
         });
 
-        return TwittsView;    
+        return TwittView;    
 
     });
