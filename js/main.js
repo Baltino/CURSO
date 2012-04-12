@@ -5,8 +5,8 @@ require.config({
     }
 });
 
-require(["backbone","routers/routerLogin"],
-    function(Backbone,routerLogin) { 
+require(["backbone"], //"routers/routerLogin"],
+    function(Backbone){  //,routerLogin) { 
         $(function() {
             //var app = new routerLogin;
             //Backbone.history.start({pushState: true, root: '/'});
