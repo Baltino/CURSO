@@ -20,7 +20,7 @@ $_SESSION['user_id'] = $result['user_id'];
 $_SESSION['screen_name'] = $result['screen_name'];
 
 if($connection->http_code==200){ 
-    header('Location: /login.html');
+    header('Location: /home.html');
 } else {  
     header('Location: /index.html');
 }  

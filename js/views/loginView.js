@@ -1,6 +1,6 @@
 define(["underscore","backbone"],
     function(_, Backbone) {
-        var loginView = Backbone.View.extend({
+        var LoginView = Backbone.View.extend({
             el: $("#login"),
             
             events: {
@@ -17,5 +17,5 @@ define(["underscore","backbone"],
                 
             }
     });
-    return loginView;
+    return LoginView;
 });

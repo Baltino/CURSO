@@ -5,14 +5,14 @@ require.config({
     }
 });
 
-require(["routers/routerLogin","backbone", "views/viewHome"],
-    function(routerLogin,Backbone,loginView) { 
+require(["backbone","routers/routerLogin","views/LoginView"],
+    function(Backbone,routerLogin,LoginView) { 
        $(function() {
             //var app = new routerLogin;
             //en sprint1 va la root :)
             //Backbone.history.start({pushState: true, root: '/'});
             
-            var vHome = new loginView;
+            var login = new LoginView;
             
        });
     }
