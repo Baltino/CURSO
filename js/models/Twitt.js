@@ -10,7 +10,7 @@ define(["underscore","backbone"],
         name: "",
         screen_name: "",
         text: "",
-        order: Movies.nextOrder()
+        created_at: ""
       };
     },
 
@@ -29,6 +29,9 @@ define(["underscore","backbone"],
       }
       if (!this.get("text")) {
         this.set({"text": this.defaults.year});
+      }
+      if (!this.get("created_at")) {
+        this.set({"created_at": this.defaults.year});
       }
     }
 
