@@ -2,7 +2,6 @@
 <html>
 	<head>
             <meta charset="utf-8"/>
-            
             <title>
             MyTwitt [bootcamp]
             </title>
@@ -10,17 +9,18 @@
             <link rel="stylesheet" href="css/main.css" />
             <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
             <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-            <script data-main="js/home.js" src="js/require.js"></script>
+      <!--      <script data-main="js/login.js" src="js/require.js"></script> -->
 	</head>
 	<body>
             <div data-role="page" id="home" class="login">
-                <div data-role="header" class="titulo" data-theme="A">
+                <div data-role="header" class="titulo" data-theme="a">
                     <span ><img src="css/img/icono_twitter.png"/>MyTwitt</span>
                 </div>
                 <div data-role="content" id="login" class="login"> 
-                    <h3><span id="user"></span></h3>
+                    
+                    <a data-role="button" href="apiTwitter/service/RequestToken.php" rel="external" id="linkLogin" class="linkLogin" data-inline="true" data-shadow="false"></a>
                 </div>
-                <div data-role="footer" data-theme="B">
+                <div data-role="footer" data-theme="b">
                     <div class="footer">
                         BootCampHTML5 
                     </div>

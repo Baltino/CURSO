@@ -22,14 +22,16 @@ define(["underscore","backbone","models/User"],
             },
             
             updateCredentials: function(name,id){
-               
+                
                 this.credentials.set({'screenName': name,'twitterId': id});
                 this.render(); 
             },
             
             render: function() {
-                
-                this.$el.html(this.credentials.get("screenName")+" estas logueado ! ...");
+                if (this.credentials.get("screenName"))
+                    this.$el.html(this.credentials.get("screenName")+" estas logueado ! ...");
+                else
+                    this.$el.html("No estás logueado");
                 return this;
             }
             

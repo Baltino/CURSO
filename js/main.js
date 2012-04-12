@@ -5,14 +5,25 @@ require.config({
     }
 });
 
-require(["backbone","routers/routerLogin","views/LoginView"],
-    function(Backbone,routerLogin,LoginView) { 
-       $(function() {
+require(["backbone","routers/routerLogin"],
+    function(Backbone,routerLogin) { 
+        $(function() {
             //var app = new routerLogin;
-            //en sprint1 va la root :)
             //Backbone.history.start({pushState: true, root: '/'});
+           
+            /* Tiene que haber una forma más facil de obtener
+             * las variables de sesion sin llamar al php */
+            url = "apiTwitter/service/UserCredentials.php";
+            $.getJSON(url,function(json){
+                if (json.user_id)
+                    $(location).attr('href',"home.html");
+                else
+                    $(location).attr('href',"login.html");
+            });
             
-            var login = new LoginView;
+            
+            
+
             
        });
     }

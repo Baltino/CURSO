@@ -7,7 +7,7 @@ include_once('config.php');
 /* If the oauth_token is old redirect to the connect page. */
 if (isset($_REQUEST['oauth_token']) && $_SESSION['oauth_token'] !== $_REQUEST['oauth_token']) {
   session_destroy();
-  header('Location: /index.html');
+  header('Location: /login.html');
 }
 
 
@@ -22,7 +22,7 @@ $_SESSION['screen_name'] = $result['screen_name'];
 if($connection->http_code==200){ 
     header('Location: /home.html');
 } else {  
-    header('Location: /index.html');
+    header('Location: /login.html');
 }  
 
 ?>
