@@ -4,27 +4,32 @@ define(["underscore","backbone","models/User"],
         var HomeView = Backbone.View.extend({
             el: $("#user"),
             
-            credencial: new User,
+            credentials: new User,
             
             events: {
                                  
             },
+            
              
             initialize: function() {
-                var data;
+                _.bindAll(this, "render","updateCredentials");
+                var cred = this;
                 url = "apiTwitter/service/UserCredentials.php";
                 $.getJSON(url,function(json){
-                   data = json; 
+                    cred.updateCredentials(json.screen_name,json.user_id)
                 });
-                
-                this.credencial.set({'screenName': data.screen_name,'twitterId': data.user_id});
-                this.render();
+        
             },
             
-            
+            updateCredentials: function(name,id){
+               
+                this.credentials.set({'screenName': name,'twitterId': id});
+                this.render(); 
+            },
             
             render: function() {
-                this.$el.html(this.credencial.get("screenName")+" estas logueado ! ...");
+                
+                this.$el.html(this.credentials.get("screenName")+" estas logueado ! ...");
                 return this;
             }
             
