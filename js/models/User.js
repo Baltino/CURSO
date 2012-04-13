@@ -1,4 +1,4 @@
-define(["underscore","backbone"],
+define(["underscore","backbone"], 
     function(_, Backbone) {
         var User = Backbone.Model.extend({
           
@@ -40,5 +40,5 @@ define(["underscore","backbone"],
         })
 
         return User;    
-
+    
     });
