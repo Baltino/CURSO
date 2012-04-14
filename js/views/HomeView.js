@@ -1,11 +1,12 @@
 define(["underscore","backbone","models/User","views/TwittView","collections/TwittList"], 
     function(_, Backbone,User,TwittView,TwittList ) { 
+        
         var Twitts = new TwittList;
+        
         var HomeView = Backbone.View.extend({
-            el: $("#user"),
+            el: $("#home"),
             
             credentials: new User,
-            //Twitts: new TwittList,
             
             events: {
                 "#logout": "logoutTwitter"
@@ -14,65 +15,59 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
              
             initialize: function() {
                 
-                url = "apiTwitter/service/Prueba.php";
-                 $.getJSON(url,function(json){
-                    //crear las vistas con sus modelos
-                   
-                   alert("faaaa");
-                });
-          
-              //  this.createAll();
+                          
                 //esto para la lsita de twitts
+                
                 Twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
                 Twitts.bind('reset', this.addAll, this);//lo mismo
                 Twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
-
-                this.main = $('#main'); //main es el div de la lista, para ocultarlo si no hay twitts, lo sacamos si quieren
                 
                // Twitts.fetch();
                 //hasta aca
-                
+               // alert("homeview");
                 _.bindAll(this, "render","updateCredentials");
                 var cred = this;
+                /*
                 url = "apiTwitter/service/UserCredentials.php";
                 $.getJSON(url,function(json){
                     cred.updateCredentials(json.screen_name,json.user_id)
                 });
-        
+                */
+                cred.updateCredentials("joaco","pepe");
+                
+               // this.createAll();
+                //alert("Tweets length: "+Twitts.length);
+                this.render();                
             },
             
             updateCredentials: function(name,id){
                 this.credentials.set({'screenName': name,'twitterId': id});
                 this.render(); 
             },
-            
-            createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_){
-                Twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_});    
-            },
-            render: function() {
+
+            render: function() {            
                 if (this.credentials.get("screenName")) {
-                    this.$el.prepend('<h3><span>'+this.credentials.get("screenName")+ '</span> you are now logged!</h3>');
-                }
-                else {
-                    this.$el.html("No estás logueado");
+                    $("#tweetStatus").hide();
+                    $("#tweetUser").html(this.credentials.get("screenName"));
+                    $("#tweetScreenName").html(this.credentials.get("twitterId"));
+                    $("#tweetCred").show("slow");
                 }
                 
-              //  if (Twitts.length) {//para ocultar el div si no hay twitts
-              //      this.main.show();
-            //    } else {
-              //      this.main.hide();
-             //  }
-      
+                $("#tweets").show();
+                if (!Twitts.length) {
+                    $("#tweetList").html("<li><span class=\"tweetname\"> No hay tweets </span></li>");
+                }
+                
                 return this;
             },
             
             addOne: function(Twitt) {
-            var view = new Twitt({model: Twitt});
-            this.$("#twitt-list").append(view.render().el);
+                var view = new Twitt({model: Twitt});
+                $("#tweets").append(view.render().el);
             },
 
             addAll: function() {
-            Twitts.each(this.addOne);
+                Twitts.each(this.addOne);
             },
             
             logoutTwitter: function(){
@@ -82,6 +77,10 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 });
             },
 
+            createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_){
+                Twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_});    
+            },
+            
             createAll: function() {
                 var prop = this;
                 url = "apiTwitter/service/HomeTimeline.php";

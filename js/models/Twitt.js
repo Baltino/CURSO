@@ -34,7 +34,6 @@ define(["underscore","backbone"],
         this.set({"created_at": this.defaults.year});
       }
     }
-
   });
 
 

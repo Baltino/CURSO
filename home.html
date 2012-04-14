@@ -8,8 +8,8 @@
             </title>
             <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
             <link rel="stylesheet" href="css/main.css" />
-            <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-            <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+            <script src="js/lib/jquery-1.7.1.min.js"></script>
+            <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
             <script data-main="js/home.js" src="js/require.js"></script>
 	</head>
 	<body>
@@ -17,30 +17,18 @@
                 <div data-role="header" class="titulo" data-theme="A">
                     <span ><img src="css/img/icono_twitter.png"/>MyTwitt</span>
                 </div>
-               <div data-role="content" id="user" class="login"> 
-                    <!--<a id="logout" data-role="button"> Logout </a>-->
+               <div data-role="header" id="user" data-theme="C" class="user"> 
+                   <span id="tweetStatus">Verificando...</span>
+                   <span id="tweetCred" hidden>
+                        <span id="tweetUser" class="tweetname"></span><span id="tweetScreen" class="tweetid"><span class="tweetarroba">@</span><span id="tweetScreenName"></span></span>
+                        <a id="logout" class="logout" data-theme="A" data-role="button"> Logout </a>
+                   </span>
                 </div>
-                <div data-role="content" id="tweets" class="login">
+                <div data-role="content" id="tweets" class="login" hidden>
                     <div data-role="content">
                         <div class="tweets" data-role="header" data-theme="A">Tweets</div> 
                    
-                        <ul data-role="listview"  data-inset="true">
-                            <li>
-                                <div class="tweet">
-                                    <div class="tweetImg">
-                                        <img src="css/img/icono_twitter.png" class="imgTweet"/>
-                                    </div>
-                                    <div class="tweetContent">
-                                        <div class="tweetheader">
-                                            <span class="tweetname">HTML5 Guy</span>
-                                            <span class="tweetid"><span class="tweetarroba">@</span>html5guy</span>
-                                        </div>
-                                        <div class="tweettext">
-                                            Este es mi primer tweet
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul id="tweetList" data-role="listview"  data-inset="true">
                         </ul>
                     </div>
                 </div>

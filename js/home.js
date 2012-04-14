@@ -8,14 +8,11 @@ require.config({
 require(["backbone","views/HomeView"],
     function(Backbone,HomeView) { 
        $(function() {
-           
-              url = "apiTwitter/service/UserCredentials.php";
-          
-           
-           
+            url = "apiTwitter/service/UserCredentials.php";
+            
             $.getJSON(url,function(json){
                 if (!json.user_id){
-                    $(location).attr('href',"login.html");
+                   // $(location).attr('href',"login.html");
                 }
             });
             var view = new HomeView;

@@ -11,12 +11,25 @@ img {
     height:75px;
 }
 
+#tweetCred {
+    font-size: 20px !Important;
+}
+
 .tweets {
     border-radius: 12px;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
     
+}
+
+.logout {
+    float:right;
+    font-size: 12px;
+    right:5px;
+    cursor: pointer;
+    text-align:center;
+    padding-top:0px;
 }
 
 .tweet {
@@ -60,8 +73,19 @@ img {
     color:gray;
 }
 
+.home {
+    width:70%;
+    margin:auto;
+}
+
 .login {
     background-color:white;
+    text-align:center;
+}
+
+.user {
+    padding-top:10px;
+    padding-bottom:10px;
     text-align:center;
 }
 
