@@ -6,15 +6,15 @@
             tagName:  "li",
 
             // Cache the template function for a single item.
-            template: _.template($('#item-template').html()),
+            template: _.template($('#tweet-template').html()),
 
             initialize: function() {
-             //   this.model.bind('change', this.render, this);
+                this.model.bind('change', this.render, this);
                 this.render();
             },
 
             render: function() {
-               //this.$el.html(this.template(this.model.toJSON()));
+               this.$el.html(this.template(this.model.toJSON()));
             return this;
             }
 
