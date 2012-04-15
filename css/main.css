@@ -31,30 +31,50 @@ img {
     text-align:center;
     padding-top:0px;
 }
-
+ul{
+	list-style-type:none;
+}
 li {
     text-align: left;
-    height:50px;
-}t
-
-.tweetheader {
-    padding-bottom: 2px;
-}
+    height:70px;
+	width:95%;
+	display:list-item;
+	float:left;
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	
+	-moz-box-background-clip: padding-box;
+	-webkit-box-background-clip: padding-box;
+	background-clip: padding-box;
+	
+	-moz-box-border-radius: .6em;
+	-webkit-box-border-radius: .6em;
+	border-radius: .6em;
+	
+	margin-bottom:10px;
+}		
 
 .tweetContent {
     float:left;
-    padding-top:8px;
+    padding-top:0px;
     padding-left:5px;
+	width:80%;
+	padding: 5px 0px 0px 5px;
 }
 
 .tweetImg {
     float:left;
+	padding: 5px 0px 5px 8px;
 }
 
 .imgTweet {
     vertical-align: middle;
     width:50px;
     height:50px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .tweetname {
