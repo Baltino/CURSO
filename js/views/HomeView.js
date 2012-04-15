@@ -76,17 +76,17 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 });
             },
 
-            createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_){
-                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_});    
+            createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_, id_){
+                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: "<a id='delete' href='apiTwitter/service/Destroy.php?ID="+id_+"' rel='external'class='delete' data-theme='A' data-role='button'> Delete </a>"});  //aca deberia ir el id nomas  
             },
-            
+
             createAll: function() {
                 var prop = this;
                 url = "apiTwitter/service/HomeTimeline.php";
                 $.getJSON(url,function(json){
                     var i=0;
                     while (json[i]!=null){
-                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at);
+                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id);
                         ++i;
                     }                   
                 });
