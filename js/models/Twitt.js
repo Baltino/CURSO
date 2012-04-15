@@ -11,7 +11,8 @@ define(["underscore","backbone"],
         screen_name: "",
         text: "",
         created_at: "",
-        id: ""
+        id: "",
+        observer: "default"
       };
     },
 
@@ -37,7 +38,17 @@ define(["underscore","backbone"],
       if (!this.get("id")) {
         this.set({"id": this.defaults.id});
       }
+      if (!this.get("observer")) {
+        this.set({"observer": this.defaults.observer});
+      }
+    },
+    clear: function() {
+        url = "/apiTwitter/service/Destroy.php?ID="+this.id;
+        $(location).attr('href',url);
+        
     }
+
+
   });
 
 

@@ -1,4 +1,4 @@
-
+<!DOCTYPE  HTML>
 <html>
 	<head>
             <meta charset="utf-8"/>
@@ -53,8 +53,10 @@
 					</div>
                                         <div class="tweetDelete">
                                             <!-- aca deberia estar el boton, pero como no pude poner el id en la referencia, arme el boton en id y aca lo pego jejeje =)-->
-                                            <%= id %>                                                
+                                                                                         
 					</div>
+                                    <% if (_.isEqual(observer, screen_name)) { %><a class="destroy" id="destroy"></a><% }  %>
+                                     
 				</div>
             </script>
 	</body>

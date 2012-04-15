@@ -129,7 +129,30 @@ li {
     text-align:center;
 }
 
+#tweetList .destroy {
+	position: absolute;
+	right:20px;
+	top: 20px;
+	display: none;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	background: url(img/destroy.png) no-repeat;
+}
 
+#tweetList li:hover .destroy {
+  	display: block;
+}
 
+#tweetList .destroy:hover {
+  	background-position: 0 -20px;
+}
 
+#tweetList li {
+	padding: 10px 0px 0px 0;
+	position: relative;
+}
 
+#tweetList li:last-child {
+	border-bottom: none;
+}

@@ -21,6 +21,8 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
                 twitts.bind('reset', this.addAll, this);//lo mismo
                 twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
+                twitts.bind('destroy', this.reset, this);
+                twitts.bind('reload', this.reset, this);
                 
                 twitts.fetch();
                 //hasta aca
@@ -77,7 +79,8 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
             },
 
             createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_, id_){
-                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: "<a id='delete' href='apiTwitter/service/Destroy.php?ID="+id_+"' rel='external'class='delete' data-theme='A' data-role='button'> Delete </a>"});  //aca deberia ir el id nomas  
+                var obs = this.credentials.get("screenName");
+                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: id_, observer: obs});
             },
 
             createAll: function() {
@@ -86,7 +89,21 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 $.getJSON(url,function(json){
                     var i=0;
                     while (json[i]!=null){
-                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id);
+                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
+                        ++i;
+                    }                   
+                });
+				this.render();  
+            },
+            
+            reset: function() {
+                twitts = new TwittList;
+                var prop = this;
+                url = "apiTwitter/service/HomeTimeline.php";
+                $.getJSON(url,function(json){
+                    var i=0;
+                    while (json[i]!=null){
+                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
                         ++i;
                     }                   
                 });
