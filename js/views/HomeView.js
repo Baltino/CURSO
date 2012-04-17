@@ -17,7 +17,7 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 
                           
                 //esto para la lsita de twitts
-                
+                twitts.reset();
                 twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
                 twitts.bind('reset', this.addAll, this);//lo mismo
                 twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
@@ -98,7 +98,7 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
             },
             
             reset: function() {
-                twitts = new TwittList;
+                twitts.reset();
                 var prop = this;
                 url = "apiTwitter/service/HomeTimeline.php";
                 $.getJSON(url,function(json){

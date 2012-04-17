@@ -133,7 +133,7 @@ li {
     background-repeat:no-repeat;
     background-position:relative; 
     text-align:center;
-    margin-top:50px;
+    margin-top:50px;	margin-bottom:50px;
 }
 
 .user {
