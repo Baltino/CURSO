@@ -3,6 +3,7 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
         
         var twitts = new TwittList;
         var maxID = 0;
+        var emptylist = true;
         var HomeView = Backbone.View.extend({
             el: $("#home"),
             
@@ -119,10 +120,11 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
                         ++i;
                     }     
                     if (i==0)
-                        this.empty = true;
+                        {this.empty = true;
+                    console.log('listavacia');
                         
                     //obtengo el id del ultimo tweet
-                    prop.setLastID(json[i-1].id_str);
+                    prop.setLastID(json[i-1].id_str);}
                     
                     $('#imgMore').hide("slow");
                     $('#buttonMore').show("slow");

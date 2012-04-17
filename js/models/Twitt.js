@@ -12,7 +12,9 @@ define(["underscore","backbone"],
         text: "",
         created_at: "",
         id: "",
-        observer: "default"
+        observer: "default",
+        date: "",
+        toDelete: "false"
       };
     },
 
@@ -41,11 +43,25 @@ define(["underscore","backbone"],
       if (!this.get("observer")) {
         this.set({"observer": this.defaults.observer});
       }
+      if (!this.get("toDelete")) {
+        this.set({"toDelete": this.defaults.toDelete});
+      }
+      if (!this.get("date")) {
+        this.set({"date": this.defaults.date});
+      }
+      
     },
     clear: function() {
-        url = "/apiTwitter/service/Destroy.php?ID="+this.id;
-        $(location).attr('href',url);
-        
+        if(this.toDelete==true){
+            alert("model. clear ya casi borra");
+            url = "/apiTwitter/service/Destroy.php?ID="+this.id;
+            $(location).attr('href',url);
+        }
+    },
+    undoDelete: function() {
+        alert("undo delete");
+        this.toDelete = "false";
+        $(deleteMsg).hide();      
     }
 
 

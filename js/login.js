@@ -1,24 +1,33 @@
 require.config({
     paths: {
         underscore: 'lib/underscore-min',
-        backbone: 'lib/backbone-min'
+        backbone: 'lib/backbone-min',
+        localstorage: 'lib/backbone-localstorage'
     }
 });
 
-require(["backbone","views/HomeView"],
-    function(Backbone,HomeView) { 
-       $(function() {
-           
-              url = "apiTwitter/service/UserCredentials.php";
-          
-           
-           
+require(["backbone"],
+    function(Backbone) { 
+        $(function() {
+            $('#loading').show();
+            $('#imgLoading').show();
+            url = "apiTwitter/service/UserCredentials.php";
             $.getJSON(url,function(json){
                 if (json.user_id){
                     $(location).attr('href',"home.html");
                 }
+                else {
+                    $('#loading').hide();
+                    $('#imgLoading').hide();
+                    $('#linkLogin').show();
+                }
             });
-            var view = new HomeView;
+            
+            
+            $('#sign-in').click(function() {
+                $('#loading').show();
+                $('#imgLoading').show();
+            });
        });
     }
 );
