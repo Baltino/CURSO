@@ -6,7 +6,7 @@ define(["underscore","backbone","localStorage", "models/Twitt"],
 
             model: Twitt,
             url: '../models/Twitt',
-            //localStorage: new Store("tweetList"),
+            localStorage: new Store("tweetList"),
 
             nextOrder: function() {
                 if (!this.length) return 1;
