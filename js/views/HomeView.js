@@ -65,9 +65,9 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
                 
                 $("#tweets").show("slow");
                 $("#tweetPanel").show("slow");
-                if (this.empty) {
-                    $("#tweets").html("<span class=\"tweetname\"> No hay tweets </span>");
-                }
+                //if (this.empty) {
+                //    $("#tweets").html("<span class=\"tweetname\"> No hay tweets </span>");
+                //}
                
                 
                 
@@ -118,14 +118,16 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
                         prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
                         ++i;
                     }     
-                    if (i==0)
-                        this.empty = true;
-                        
-                    //obtengo el id del ultimo tweet
-                    prop.setLastID(json[i-1].id_str);
-                    
-                    $('#imgMore').hide("slow");
-                    $('#buttonMore').show("slow");
+                     if (i==0)
+                        {                          
+                          $("#tweets").html("<span class=\"tweetname\"> No hay tweets </span>");
+                        }
+                        else
+                        {prop.setLastID(json[i-1].id_str)  
+                        //obtengo el id del ultimo tweet 
+                        $('#imgMore').hide("slow");
+                        $('#buttonMore').show("slow");
+                        }
                 });
                 
                 
