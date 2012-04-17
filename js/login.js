@@ -16,13 +16,15 @@ require(["backbone"],
                 if (json.user_id){
                     $(location).attr('href',"home.html");
                 }
-                $('#loading').hide();
-                $('#imgLoading').hide();
-                $('#linkLogin').show();
+                else {
+                    $('#loading').hide();
+                    $('#imgLoading').hide();
+                    $('#linkLogin').show();
+                }
             });
             
             
-            $('#linkLogin').click(function() {
+            $('#sign-in').click(function() {
                 $('#loading').show();
                 $('#imgLoading').show();
             });

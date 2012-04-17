@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="css/main.css" />
              <script src="js/lib/jquery-1.7.1.min.js"></script>
             <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
-            <script data-main="js/login" src="js/require.js"></script>
+            <script data-main="js/login" src="js/lib/require.js"></script>
 	</head>
 	<body>
             <div data-role="page" class="fondo">
@@ -22,7 +22,7 @@
                         <img width="55" height="55" src="img/ajax-loader.gif" alt="loading" title="loading" />
                     </div>
                     <div id="linkLogin">
-                        <a href="apiTwitter/service/RequestToken.php" rel="external" data-inline="true"><img width="443" height="63" src="img/sign-in.png"/></a>
+                        <a id="sign-in" href="apiTwitter/service/RequestToken.php" rel="external" data-inline="true"><img width="443" height="63" src="img/sign-in.png"/></a>
                     </div>
                 </div>
                 <div data-role="footer" data-theme="a" data-position="fixed">

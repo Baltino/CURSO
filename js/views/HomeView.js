@@ -1,5 +1,5 @@
-define(["underscore","backbone","models/User","views/TwittView","collections/TwittList"], 
-    function(_, Backbone,User,TwittView,TwittList ) { 
+define(["underscore","backbone","moment","models/User","views/TwittView","collections/TwittList"], 
+    function(_, Backbone,Moment,User,TwittView,TwittList ) { 
         
         var twitts = new TwittList;
         var maxID = 0;
@@ -10,9 +10,11 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
             
             events: {
                 "#logout": "logoutTwitter",
-                "click #moreTweets": "createAll"
+                "click #moreTweets": "seeMore"
             },
             lastID: maxID = 0,//significa que todavia no se hizo "ver mas"
+            
+            empty: false,
              
             initialize: function() {
                 
@@ -56,18 +58,20 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
 
             render: function() {            
                 if (this.credentials.get("screenName")) {
-                    $("#tweetStatus").hide("fast");
-                    $("#tweetUser").html(this.credentials.get("screenName"));
-                    $("#tweetScreenName").html(this.credentials.get("twitterId"));
+                 //   $("#tweetStatus").hide("fast");
+                    
+                    $("#tweetScreenName").html(this.credentials.get("screenName"));
                     $("#tweetCred").show("slow");
                 }
                 
                 $("#tweets").show("slow");
                 $("#tweetPanel").show("slow");
-                if (!twitts.length) {
-					//$("#tweetList").html("<li><span class=\"tweetname\"> No hay tweets </span></li>");
+                if (this.empty) {
+                    $("#tweets").html("<span class=\"tweetname\"> No hay tweets </span>");
                 }
                
+                
+                
                 return this;
             },
             
@@ -89,7 +93,16 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
 
             createTwitt: function(retweeted_,image_,name_,screen_name_,text_,created_at_, id_){
                 var obs = this.credentials.get("screenName");
-                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: id_, observer: obs});
+                //var time = moment(created_at_).fromNow();
+                var time = moment(created_at_).format('DD/MM/YY, HH:mm:ss');
+                
+                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: id_, observer: obs, date: time});
+                
+            },
+            seeMore: function(){
+                $('#imgMore').show("fast");
+                $('#buttonMore').hide("fast");
+                this.createAll();
             },
 
             createAll: function() {
@@ -104,12 +117,19 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                         prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
                         ++i;
                     }     
+                    if (i==0)
+                        this.empty = true;
+                        
                     //obtengo el id del ultimo tweet
                     prop.setLastID(json[i-1].id_str);
-
+                    
+                    $('#imgMore').hide("slow");
+                    $('#buttonMore').show("slow");
                 });
-              
-		this.render();  
+                
+                
+		this.render(); 
+               
             }            
             
         });

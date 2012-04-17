@@ -12,7 +12,8 @@ define(["underscore","backbone"],
         text: "",
         created_at: "",
         id: "",
-        observer: "default"
+        observer: "default",
+        date: ""
       };
     },
 
@@ -41,7 +42,9 @@ define(["underscore","backbone"],
       if (!this.get("observer")) {
         this.set({"observer": this.defaults.observer});
       }
+      
     },
+    
     clear: function() {
         url = "/apiTwitter/service/Destroy.php?ID="+this.id;
         $(location).attr('href',url);

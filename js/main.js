@@ -1,13 +1,14 @@
 require.config({
     paths: {
+        jQuery : 'lib/jquery-1.7.1.min',
+        jQueryMobile: 'lib/jquery.mobile-1.1.0-rc.1.min',
         underscore: 'lib/underscore-min',
-        backbone: 'lib/backbone-min',
-        localstorage: 'lib/backbone-localstorage'
+        backbone: 'lib/backbone-min'
     }
 });
 
-require(["backbone"], //"routers/routerLogin"],
-    function(Backbone){  //,routerLogin) { 
+require(["backbone"], 
+    function(Backbone){
         $(function() {
             //var app = new routerLogin;
             //Backbone.history.start({pushState: true, root: '/'});

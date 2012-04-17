@@ -4,18 +4,18 @@ define(["underscore","backbone","localStorage", "models/Twitt"],
 
         var TwittList = Backbone.Collection.extend({
 
-        model: Twitt,
-		url: '../models/Twitt',
-		localStorage: new Store("tweetList"),
-		
-        nextOrder: function() {
-            if (!this.length) return 1;
-            return this.last().get('order') + 1;
-        },
+            model: Twitt,
+            url: '../models/Twitt',
+            //localStorage: new Store("tweetList"),
 
-        comparator: function(twitt) {
-            return twitt.get('order');
-        }
+            nextOrder: function() {
+                if (!this.length) return 1;
+                return this.last().get('order') + 1;
+            },
+
+            comparator: function(twitt) {
+                return twitt.get('order');
+            }
 
         })
 
