@@ -6,7 +6,11 @@ include_once('config.php');
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
 //$result = $connection->get('statuses/home_timeline', $_GET);
 
-$result = $connection->get('statuses/home_timeline',array('count' => '20'));
+if($_REQUEST['max_id'] == 0){//initial
+    $result = $connection->get('statuses/home_timeline',array('count' => '20'));
+}else{//all the consecutive gets
+    $result = $connection->get('statuses/home_timeline',array('count' => '20', 'max_id' => $_REQUEST['max_id']));
+}
 
 echo json_encode($result);
 ?>
