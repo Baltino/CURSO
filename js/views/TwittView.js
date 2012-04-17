@@ -14,9 +14,6 @@
             },
 
             initialize: function() {
-                
-
-            
                 this.model.bind('change', this.render, this);
                 this.model.bind('destroy', this.remove, this);
                 this.render();
@@ -42,21 +39,6 @@
             del: function() {
                 alert("del");
                 this.model.clear();
-            },
-            clear: function() {
-
-                alert("destroy");
-                var prop = this;
-                $("#deleteMsg").css("visibility","visible");
-                $("#destroy").css("visibility","hidden");
-                mytime=setTimeout("prop.del()",5000); 
-                alert("despues de 5 seg?");
-            },
-            undo: function() {
-                alert("undo function");
-                $("#deleteMsg").css("visibility","hidden");
-                $("#destroy").css("visibility","visible");
-                this.model.undoDelete();
             }
         });
 
