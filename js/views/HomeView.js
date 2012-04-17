@@ -95,7 +95,7 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
                 //var time = moment(created_at_).fromNow();
                 var time = moment(created_at_).format('DD/MM/YY, HH:mm:ss');
                 
-                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: id_, observer: obs, date: time});
+                twitts.create({retweeted: retweeted_,image: image_ ,name: name_,screen_name: screen_name_,text: text_,created_at: created_at_, id: id_, observer: obs, date: time, observer: obs});
                 
             },
             seeMore: function(){

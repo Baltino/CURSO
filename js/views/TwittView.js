@@ -9,7 +9,8 @@
             template: _.template($('#tweet-template').html()),
             
             events: {
-                "click a.destroy" : "clear"
+                "click a.destroy" : "clear",
+                "click a.undo" : "undo"
             },
 
             initialize: function() {
@@ -23,6 +24,20 @@
                 return this;
             },
             clear: function() {
+
+                alert("destroy");
+                $("#deleteMsg").css("visibility","visible");
+                $("#destroy").css("visibility","hidden");
+                mytime=setTimeout('del()',5000); 
+            },
+            undo: function() {
+                alert("undo function");
+                $("#deleteMsg").css("visibility","hidden");
+                $("#destroy").css("visibility","visible");
+                this.model.undoDelete();
+            },
+            del: function() {
+                alert("del");
                 this.model.clear();
             }
         });
