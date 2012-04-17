@@ -48,13 +48,14 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
 
             render: function() {            
                 if (this.credentials.get("screenName")) {
-                    $("#tweetStatus").hide();
+                    $("#tweetStatus").hide("fast");
                     $("#tweetUser").html(this.credentials.get("screenName"));
                     $("#tweetScreenName").html(this.credentials.get("twitterId"));
                     $("#tweetCred").show("slow");
                 }
                 
-                $("#tweets").show();
+                $("#tweets").show("slow");
+				$("#tweetPanel").show("slow");
                 if (!twitts.length) {
 					//$("#tweetList").html("<li><span class=\"tweetname\"> No hay tweets </span></li>");
                 }

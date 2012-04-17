@@ -15,8 +15,12 @@ require(["backbone","views/HomeView"],
                 if (!json.user_id){
                    $(location).attr('href',"login.html");
                 }
+				else
+				{
+					var view = new HomeView;
+				}
             });
-            var view = new HomeView;
+            
        });
     }
 );

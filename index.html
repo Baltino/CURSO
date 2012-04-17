@@ -8,15 +8,18 @@
             <link rel="stylesheet" href="css/main.css" />
             <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
             <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-            <script data-main="js/main.js" src="js/require.js"></script>
+            <script data-main="js/main" src="js/require.js"></script>
 	</head>
 	<body>
             <div data-role="page" id="home" class="login">
                 <div data-role="header" class="titulo" data-theme="A">
                     <span ><img src="css/img/icono_twitter.png"/>MyTwitt</span>
                 </div>
-                <div data-role="content" id="login" class="login"> 
-                    Redireccionando.....
+                <div data-role="content"> 
+                    <div id="loading"></div>
+                    <div id="imgLoading">
+                        <img width="43" height="11" src="img/ajax-loader.gif" alt="loading" title="loading" />
+                    </div>
                 </div>
                 <div data-role="footer" data-theme="B">
                     <div class="footer">
@@ -24,22 +27,6 @@
                     </div>
                 </div> 
             </div>      
-            <script type="text/template" id="item-template">
             
-                <div class="tweet">
-                    <div class="tweetImg">
-                        <img src="<%= urlImg %>" class="imgTweet"/>
-                    </div>
-                    <div class="tweetContent">
-                        <div class="tweetheader">
-                            <span class="tweetname"><%= name %></span>
-                            <span class="tweetid"><span class="tweetarroba">@</span><%= nameTo %></span>
-                        </div>
-                        <div class="tweettext">
-                            <%= tweetText %>
-                        </div>
-                    </div>
-                </div>
-            </script>
 	</body>
 </html>
