@@ -21,10 +21,9 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 twitts.bind('add', this.addOne, this); //por si necesitamos el metoto para crearlo
                 twitts.bind('reset', this.addAll, this);//lo mismo
                 twitts.bind('all', this.render, this);//para llaamr a render cuando pasa algo
-                twitts.bind('destroy', this.reset, this);
-                twitts.bind('reload', this.reset, this);
+
                 
-                twitts.fetch();
+
                 //hasta aca
                // alert("homeview");
                 _.bindAll(this, "render","updateCredentials");
@@ -85,20 +84,6 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
             },
 
             createAll: function() {
-                var prop = this;
-                url = "apiTwitter/service/HomeTimeline.php";
-                $.getJSON(url,function(json){
-                    var i=0;
-                    while (json[i]!=null){
-                        prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
-                        ++i;
-                    }                   
-                });
-				this.render();  
-            },
-            
-            reset: function() {
-                twitts.reset();
                 var prop = this;
                 url = "apiTwitter/service/HomeTimeline.php";
                 $.getJSON(url,function(json){
