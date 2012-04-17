@@ -2,16 +2,17 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
     function(_, Backbone,User,TwittView,TwittList ) { 
         
         var twitts = new TwittList;
-        
+        var maxID = 0;
         var HomeView = Backbone.View.extend({
             el: $("#home"),
             
             credentials: new User,
             
             events: {
-                "#logout": "logoutTwitter"
+                "#logout": "logoutTwitter",
+                "click #moreTweets": "createAll"
             },
-            
+            lastID: maxID = 0,//significa que todavia no se hizo "ver mas"
              
             initialize: function() {
                 
@@ -39,6 +40,14 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 this.createAll();
                              
             },
+            setLastID: function(val){
+                this.lastID = val;
+            },
+            
+            getLastID: function(){
+                return this.lastID;
+            },
+            
             
             updateCredentials: function(name,id){
                 this.credentials.set({'screenName': name,'twitterId': id});
@@ -54,11 +63,11 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
                 }
                 
                 $("#tweets").show("slow");
-				$("#tweetPanel").show("slow");
+                $("#tweetPanel").show("slow");
                 if (!twitts.length) {
 					//$("#tweetList").html("<li><span class=\"tweetname\"> No hay tweets </span></li>");
                 }
-                
+               
                 return this;
             },
             
@@ -84,17 +93,25 @@ define(["underscore","backbone","models/User","views/TwittView","collections/Twi
             },
 
             createAll: function() {
+                
                 var prop = this;
                 url = "apiTwitter/service/HomeTimeline.php";
-                $.getJSON(url,function(json){
+                
+                
+                $.getJSON(url,{max_id: prop.getLastID()},function(json){
                     var i=0;
                     while (json[i]!=null){
                         prop.createTwitt(json[i].retweeted,json[i].user.profile_image_url_https ,json[i].user.name,json[i].user.screen_name,json[i].text,json[i].created_at,json[i].id_str);
                         ++i;
-                    }                   
+                    }     
+                    //obtengo el id del ultimo tweet
+                    prop.setLastID(json[i-1].id_str);
+
                 });
-				this.render();  
-            }
+              
+		this.render();  
+            }            
+            
         });
 
         return HomeView;    
