@@ -9,7 +9,6 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
             credentials: new User,
             
             events: {
-                "#logout": "logoutTwitter",
                 "click #moreTweets": "seeMore"
             },
             lastID: maxID = 0,//significa que todavia no se hizo "ver mas"
@@ -100,8 +99,10 @@ define(["underscore","backbone","moment","models/User","views/TwittView","collec
                 
             },
             seeMore: function(){
+                
                 $('#imgMore').show("fast");
                 $('#buttonMore').hide("fast");
+                
                 this.createAll();
             },
 
