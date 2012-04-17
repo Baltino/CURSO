@@ -7,20 +7,25 @@
             </title>
             <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
             <link rel="stylesheet" href="css/main.css" />
-            <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-            <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-      <!--      <script data-main="js/login.js" src="js/require.js"></script> -->
+             <script src="js/lib/jquery-1.7.1.min.js"></script>
+            <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
+            <script data-main="js/login" src="js/require.js"></script>
 	</head>
 	<body>
-            <div data-role="page" id="home" class="login">
-                <div data-role="header" class="titulo" data-theme="a" data-position="fixed">
-                    <span ><img src="css/img/icono_twitter.png"/>MyTwitt</span>
+            <div data-role="page" class="fondo">
+                <div data-role="header" class="titulo" data-theme="A" data-position="fixed">
+                    <span ><img id="logo" src="css/img/icono_twitter.png"/>MyTwitt</span>
                 </div>
-                <div data-role="content" id="login" class="login"> 
-                    
-                    <a data-role="button" href="apiTwitter/service/RequestToken.php" rel="external" id="linkLogin" class="linkLogin" data-inline="true" data-shadow="false"></a>
+                <div data-role="content" > 
+                    <div id="loading"></div>
+                    <div id="imgLoading">
+                        <img width="55" height="55" src="img/ajax-loader.gif" alt="loading" title="loading" />
+                    </div>
+                    <div id="linkLogin">
+                        <a href="apiTwitter/service/RequestToken.php" rel="external" data-inline="true"><img width="443" height="63" src="img/sign-in.png"/></a>
+                    </div>
                 </div>
-                <div data-role="footer" data-theme="b" data-position="fixed">
+                <div data-role="footer" data-theme="a" data-position="fixed">
                     <div class="footer">
                         BootCampHTML5 
                     </div>

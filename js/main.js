@@ -12,16 +12,13 @@ require(["backbone"], //"routers/routerLogin"],
             //var app = new routerLogin;
             //Backbone.history.start({pushState: true, root: '/'});
            
-            /* Tiene que haber una forma más facil de obtener
-             * las variables de sesion sin llamar al php */
             $('#loading').show();
             $('#imgLoading').show();
-            
-            
+                
+            /* Tiene que haber una forma más facil de obtener
+             * las variables de sesion sin llamar al php */
+        
             url = "apiTwitter/service/UserCredentials.php";
-          
-           
-           
             $.getJSON(url,function(json){
                 if (json.user_id){
                     $(location).attr('href',"home.html");
@@ -30,6 +27,7 @@ require(["backbone"], //"routers/routerLogin"],
                     $(location).attr('href',"login.html");
                 }
             });
+            
             
             
             
