@@ -83,7 +83,7 @@ img#logo {
 
 
 
-.tweets {
+.tweets, .followers {
    
     font-size: 20px;
     font-weight: bold;
@@ -184,7 +184,7 @@ ul{
     background-position: 0 -20px;
 }
 
-#tweetList li {
+#tweetList li, #followersList li {
     padding: 10px 0px 0px 0;
 	margin-bottom:10px;
 	margin-left:90px;

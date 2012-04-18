@@ -3,14 +3,14 @@
 	<head>
             <meta charset="utf-8"/>          
             <title>
-            MyTwitt [bootcamp]
+            My Tweet / Followers
             </title>
             <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css" />
 			<link rel="stylesheet" type="text/css" media="screen and (min-device-width:800px)" href="css/main.css">
 			<link rel="stylesheet" type="text/css" media="screen and (max-device-width:800px)" href="css/mobile.css">
             <script src="js/lib/jquery-1.7.1.min.js"></script>
             <script src="js/lib/jquery.mobile-1.1.0-rc.1.min.js"></script>
-            <script data-main="js/home" src="js/lib/require.js"></script>
+            <script data-main="js/followers" src="js/lib/require.js"></script>
 	</head>
 
         <body>
@@ -21,7 +21,7 @@
                     
                     <span id="tweetPanel" class="tweetpanel" hidden>
                         <span class="tweetlink">Home</span>
-                        <a href="followers.html"><span class="tweetlink">Follow</span></a>
+                        <span class="tweetlink">Follow</span>
                     </span>
                    <span id="tweetCred" hidden>
                        
@@ -39,12 +39,12 @@
                     <img width="55" height="55" src="img/ajax-loader.gif" alt="loading" title="loading" />
                 </div>
                 
-                <div data-role="content" id="tweets" class="login" hidden>
+                <div data-role="content" id="followers" class="login" hidden>
                     <div data-role="content">
-                        <div class="tweets" data-role="header" data-theme="a">Tweets</div> 
+                        <div class="followers" data-role="header" data-theme="a">Tweets</div> 
                         
 						
-                        <ul id="tweetList">                       
+                        <ul id="followersList">                       
                         </ul>
                         
                     </div>
@@ -53,7 +53,7 @@
                             <img width="25" height="25" src="img/ajax-loader-ver-mas.gif" alt="loading" title="loading" />
                         </div>
                         <div id="buttonMore">
-                            <button id="moreTweets" data-role="button" data-inline="true"> Ver mas </button>
+                            <button id="moreFollowers" data-role="button" data-inline="true"> Ver mas </button>
                         </div>
                     </div>
 
@@ -70,10 +70,10 @@
 
             
             
-            <script type="text/template" id="tweet-template">
+            <script type="text/template" id="follower-template">
                 <div class="tweet">
                     <div class="tweetImg">
-					<img src="<%= image %>" class="imgTweet"/>
+                        <img src="<%= image %>" class="imgTweet"/>
                     </div>
                     <div class="tweetContent">
                         <div class="tweetheader">
@@ -82,16 +82,11 @@
                                 <span class="tweetarroba">@</span>
                                 <%=screen_name%>
                             </span>
-                            <span class="tweetdate"><%= date %></span>
+                            
                         </div>
-                        <div class="tweettext"><%= text %></div>
+                        
                     </div>
-                    <div class="tweetDelete">
-                        <!-- aca deberia estar el boton, pero como no pude poner el id en la referencia, arme el boton en id y aca lo pego jejeje =)-->
-                    </div>
-
-                    <% if (_.isEqual(observer, screen_name)) { %><a class="destroy" id="destroy"></a><% }  %>
-                    <% if (_.isEqual(observer, screen_name)) { %><div class="deleteMsg" id="deleteMsg">Este tweet será eliminado permanentemente<a class="undo" id="undo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Undo</a></div><% }  %>
+                    
                 </div>
 
             </script>
