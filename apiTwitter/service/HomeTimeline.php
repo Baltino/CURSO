@@ -7,9 +7,9 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_t
 //$result = $connection->get('statuses/home_timeline', $_GET);
 
 if($_REQUEST['max_id'] == 0){//initial
-    $result = $connection->get('statuses/home_timeline',array('count' => '20'));
+    $result = $connection->get('statuses/home_timeline',array('count' => '21'));
 }else{//all the consecutive gets
-    $result = $connection->get('statuses/home_timeline',array('count' => '20', 'max_id' => $_REQUEST['max_id']));
+    $result = $connection->get('statuses/home_timeline',array('count' => '21', 'max_id' => $_REQUEST['max_id']));
 }
 
 echo json_encode($result);
